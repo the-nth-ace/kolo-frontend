@@ -1,17 +1,8 @@
 import { Heading, Flex, VStack, Text, Button, Image } from "@chakra-ui/react";
 import React from "react";
-import { Typewriter } from "react-simple-typewriter";
+import { Link } from "react-router-dom";
 
-interface IHero {
-  onOpen: () => void;
-  setActiveToRegister: () => void;
-}
-
-const Hero: React.FC<IHero> = (props) => {
-  const openRegisterModal = () => {
-    props.setActiveToRegister();
-    props.onOpen();
-  };
+const Hero: React.FC = () => {
   return (
     <Flex
       w="full"
@@ -39,22 +30,22 @@ const Hero: React.FC<IHero> = (props) => {
             accounting
           </Text>
         </VStack>
-
-        <Button
-          bg="secondary"
-          color="header"
-          px={8}
-          minW="fit-content"
-          py={6}
-          borderRadius="md"
-          _hover={{
-            bg: "default",
-            opacity: 0.9,
-          }}
-          onClick={openRegisterModal}
-        >
-          Register Now
-        </Button>
+        <Link to="/auth">
+          <Button
+            bg="secondary"
+            color="header"
+            px={8}
+            minW="fit-content"
+            py={6}
+            borderRadius="md"
+            _hover={{
+              bg: "default",
+              opacity: 0.9,
+            }}
+          >
+            Register Now
+          </Button>
+        </Link>
       </VStack>
       <VStack
         w="full"

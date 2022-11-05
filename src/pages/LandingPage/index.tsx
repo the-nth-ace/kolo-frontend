@@ -18,19 +18,10 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 export const LandingPage = () => {
-  const { isOpen, onClose, onOpen } = useDisclosure();
-  const [isSignin, setIsSigin] = useState(true);
-
-  const setActiveToSignIn = () => {
-    setIsSigin(true);
-  };
-  const setActiveToRegister = () => {
-    setIsSigin(false);
-  };
   return (
     <VStack w="full" px={[12, 20]} pt={4} bg="#26273B">
-      <Navbar onOpen={onOpen} setActiveToSignIn={setActiveToSignIn} />
-      <Hero onOpen={onOpen} setActiveToRegister={setActiveToRegister} />
+      <Navbar />
+      <Hero />
     </VStack>
   );
 };

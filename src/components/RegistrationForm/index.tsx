@@ -6,11 +6,12 @@ import {
   Input,
   VStack,
 } from "@chakra-ui/react";
+
 import React from "react";
 
-const SignInFrom = () => {
+const RegistrationForm: React.FC = () => {
   return (
-    <VStack bg="white" borderRadius="lg" width={["full", "400px"]} h="350px">
+    <VStack bg="white" borderRadius="lg" width={["full", "400px"]} h="500px">
       <FormControl
         w="full"
         display="flex"
@@ -20,10 +21,13 @@ const SignInFrom = () => {
         px={8}
         pt={12}
       >
-        <FormLabel>Sign In</FormLabel>
+        <FormLabel>Sign Up</FormLabel>
 
         <Input type="email" placeholder="johndanladi@kolobank.com" />
         <Input type="password" placeholder="**********" />
+        <Input type="confirmPassword" placeholder="**********" />
+        <Input type="text" placeholder="First Name" />
+        <Input type="text" placeholder="Last Name" />
 
         <Button
           bg="secondary"
@@ -33,12 +37,12 @@ const SignInFrom = () => {
           height="40px"
           borderRadius="md"
         >
-          Sign In
+          Sign Up
         </Button>
-        <FormHelperText>Don't have an account? Register now</FormHelperText>
+        <FormHelperText>Already have an account? Sign In</FormHelperText>
       </FormControl>
     </VStack>
   );
 };
 
-export default SignInFrom;
+export default RegistrationForm;

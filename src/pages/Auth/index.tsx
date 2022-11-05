@@ -8,6 +8,8 @@ import {
   Button,
 } from "@chakra-ui/react";
 import React from "react";
+import { Link } from "react-router-dom";
+import RegistrationForm from "../../components/RegistrationForm";
 import SignInFrom from "../../components/SignInForm";
 
 const Auth = () => {
@@ -21,8 +23,12 @@ const Auth = () => {
       justifyContent="center"
       spacing={8}
     >
-      <Image src="Bank.svg" alt="logo" />
-      <SignInFrom />
+      <Link to="/">
+        <Image src="Bank.svg" alt="logo" />
+      </Link>
+
+      {/* <SignInFrom /> */}
+      <RegistrationForm />
     </VStack>
   );
 };
