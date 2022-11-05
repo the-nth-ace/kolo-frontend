@@ -8,6 +8,7 @@ import Fonts from "./components/Fonts/index";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import { LandingPage } from "./pages";
 import Dashboard from "./pages/Dashboard";
+import Auth from "./pages/Auth";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/auth",
+    element: <Auth />,
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
