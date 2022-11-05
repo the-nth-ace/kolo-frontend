@@ -12,7 +12,16 @@ import NavItem from "../../components/NavItem";
 import navData from "../../data/header.data";
 import MobileDrawer from "../../MobileDrawer";
 
-const Navbar: React.FC = () => {
+interface INavBar {
+  onOpen: () => void;
+  setActiveToSignIn: () => void;
+}
+
+const Navbar: React.FC<INavBar> = (props) => {
+  const openSignInModal = () => {
+    props.setActiveToSignIn();
+    props.onOpen();
+  };
   return (
     <chakra.header id="header" w="full">
       <Flex w="100%" py={2} align="center" justifyContent="space-between">
@@ -28,7 +37,8 @@ const Navbar: React.FC = () => {
               px={4}
               width="120px"
               height="35px"
-              borderRadius="206px"
+              borderRadius="md"
+              onClick={openSignInModal}
             >
               Sign In
             </Button>

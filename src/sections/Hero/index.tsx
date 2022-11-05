@@ -2,7 +2,16 @@ import { Heading, Flex, VStack, Text, Button, Image } from "@chakra-ui/react";
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 
-const Hero: React.FC = () => {
+interface IHero {
+  onOpen: () => void;
+  setActiveToRegister: () => void;
+}
+
+const Hero: React.FC<IHero> = (props) => {
+  const openRegisterModal = () => {
+    props.setActiveToRegister();
+    props.onOpen();
+  };
   return (
     <Flex
       w="full"
@@ -37,11 +46,12 @@ const Hero: React.FC = () => {
           px={8}
           minW="fit-content"
           py={6}
-          borderRadius="206px"
+          borderRadius="md"
           _hover={{
             bg: "default",
             opacity: 0.9,
           }}
+          onClick={openRegisterModal}
         >
           Register Now
         </Button>
