@@ -18,16 +18,15 @@ const RegistrationForm: React.FC = () => {
         flexDir="column"
         alignItems="center"
         gap={4}
-        px={8}
-        pt={12}
+        p={8}
+        pb={2}
       >
         <FormLabel>Sign Up</FormLabel>
-
+        <Input type="text" placeholder="First Name" />
+        <Input type="text" placeholder="Last Name" />
         <Input type="email" placeholder="johndanladi@kolobank.com" />
         <Input type="password" placeholder="**********" />
         <Input type="confirmPassword" placeholder="**********" />
-        <Input type="text" placeholder="First Name" />
-        <Input type="text" placeholder="Last Name" />
 
         <Button
           bg="secondary"
