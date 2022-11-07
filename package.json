@@ -29,6 +29,7 @@
     "react-router": "^6.4.3",
     "react-router-dom": "^6.4.3",
     "react-simple-typewriter": "^4.0.5",
+    "tsconfig-paths": "^4.1.0",
     "vite-plugin-imp": "^2.3.1"
   },
   "devDependencies": {

@@ -20,6 +20,7 @@ export const counterSlice = createSlice({
       state.value += action.payload;
     },
   },
+  extraReducers(builder) {},
 });
 
 export const counterCurrentState = (state: RootState) => state.counter;
