@@ -6,13 +6,17 @@ import {
   FormLabel,
   Input,
   VStack,
+  useToast,
 } from "@chakra-ui/react";
 import { Formik, Field } from "formik";
 
 import React from "react";
 
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
 const RegistrationForm: React.FC = () => {
   // Form registration logic
+  const toast = useToast();
 
   return (
     <VStack bg="white" borderRadius="lg" width={["full", "400px"]}>
@@ -24,11 +28,20 @@ const RegistrationForm: React.FC = () => {
           password: "",
           confirmPassword: "",
         }}
-        onSubmit={(values: any) => {
+        onSubmit={async (values: any) => {
+          await sleep(1500);
           alert(JSON.stringify(values, null, 2));
+          toast({
+            title: "Account created.",
+            description: "We've created your account for you.",
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+            position: "top",
+          });
         }}
       >
-        {({ handleSubmit, errors, touched, values }) => (
+        {({ handleSubmit, errors, touched, values, isSubmitting }) => (
           <form
             onSubmit={handleSubmit}
             style={{
@@ -129,6 +142,7 @@ const RegistrationForm: React.FC = () => {
                   height="40px"
                   borderRadius="md"
                   type="submit"
+                  isLoading={isSubmitting}
                 >
                   Sign Up
                 </Button>
