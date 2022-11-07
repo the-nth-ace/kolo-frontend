@@ -2,13 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import { sortUserPlugins } from "vite";
 import counterReducer from "./counter";
 import { koloApi } from "./koloApi";
-import { authReducer } from "./slices/auth.slice";
+// import { authReducer } from "./slices/auth.slice";
 
 // NOTE Add new reducer
 export const store: any = configureStore({
   reducer: {
     counter: counterReducer,
-    user: authReducer,
+    // user: authReducer,
     [koloApi.reducerPath]: koloApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
