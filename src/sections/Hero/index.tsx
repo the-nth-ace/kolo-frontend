@@ -23,7 +23,6 @@ const Hero: React.FC = () => {
   return (
     <Flex
       w="full"
-      h="fit-content"
       py={4}
       alignItems="flex-start"
       flexDir={{ base: "column", md: "row" }}
