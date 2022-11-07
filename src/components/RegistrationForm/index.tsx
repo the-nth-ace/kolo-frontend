@@ -9,9 +9,9 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { Formik, Field } from "formik";
-
 import React from "react";
-
+import axios from "axios";
+import { RootState } from "../../redux/store";
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 const RegistrationForm: React.FC = () => {
@@ -25,20 +25,39 @@ const RegistrationForm: React.FC = () => {
           firstName: "",
           lastName: "",
           email: "",
-          password: "",
-          confirmPassword: "",
+          password: "********",
+          confirmPassword: "********",
         }}
-        onSubmit={async (values: any) => {
-          await sleep(1500);
-          alert(JSON.stringify(values, null, 2));
-          toast({
-            title: "Account created.",
-            description: "We've created your account for you.",
-            status: "success",
-            duration: 9000,
-            isClosable: true,
-            position: "top",
-          });
+        onSubmit={async (values: any, { resetForm }: any) => {
+          await sleep(3000);
+          console.log(values);
+          try {
+            const resp = await axios.post(
+              "http://localhost:5000/auth/signup",
+              values
+            );
+
+            toast({
+              title: "Account created.",
+              description: "We've created your account for you.",
+              status: "success",
+              duration: 9000,
+              isClosable: true,
+              position: "top",
+            });
+
+            resetForm();
+          } catch (err: any) {
+            console.log(err);
+            toast({
+              title: "Something went wrong.",
+              description: err.message,
+              status: "error",
+              duration: 9000,
+              isClosable: true,
+              position: "top",
+            });
+          }
         }}
       >
         {({ handleSubmit, errors, touched, values, isSubmitting }) => (
@@ -87,9 +106,18 @@ const RegistrationForm: React.FC = () => {
                   name="email"
                   type="email"
                   placeholder="Email"
-                  validate={(value: string) => {
+                  validate={async (value: string) => {
                     if (value.length < 3) {
                       return "Email cannot be less than three characters";
+                    }
+
+                    try {
+                      await axios.get(
+                        `http://localhost:5000/auth/user/email/${value}`
+                      );
+                      return "User with this email already exists";
+                    } catch (err) {
+                      null;
                     }
                   }}
                 />
@@ -120,7 +148,6 @@ const RegistrationForm: React.FC = () => {
                   type="password"
                   placeholder="Confirm Password"
                   validate={(value: string) => {
-                    console.log(errors);
                     if (value.length < 8) {
                       return "Confrim Password cannot be less than eight characters";
                     }
