@@ -9,10 +9,13 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
-import RegistrationForm from "../../components/RegistrationForm";
-import SignInFrom from "../../components/SignInForm";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import SignInForm from "../../components/SignInForm";
+import RegistrationForm from "../../components//RegistrationForm";
 
 const Auth = () => {
+  const { loginPage } = useSelector((state: RootState) => state.auth);
   return (
     <VStack
       w="full"
@@ -26,9 +29,7 @@ const Auth = () => {
       <Link to="/">
         <Image src="Bank.svg" alt="logo" />
       </Link>
-
-      {/* <SignInFrom /> */}
-      <RegistrationForm />
+      {loginPage ? <SignInForm /> : <RegistrationForm />}
     </VStack>
   );
 };

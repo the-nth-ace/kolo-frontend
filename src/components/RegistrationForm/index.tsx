@@ -12,11 +12,14 @@ import { Formik, Field } from "formik";
 import React from "react";
 import axios from "axios";
 import { RootState } from "../../redux/store";
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+import { useDispatch } from "react-redux";
+import { setToLoginPage } from "../../redux/slices/auth.slice";
+import { sleep } from "../../utils";
 
 const RegistrationForm: React.FC = () => {
   // Form registration logic
   const toast = useToast();
+  const dispatch = useDispatch();
 
   return (
     <VStack bg="white" borderRadius="lg" width={["full", "400px"]}>
@@ -30,7 +33,6 @@ const RegistrationForm: React.FC = () => {
         }}
         onSubmit={async (values: any, { resetForm }: any) => {
           await sleep(3000);
-          console.log(values);
           try {
             const resp = await axios.post(
               "http://localhost:5000/auth/signup",
@@ -48,7 +50,6 @@ const RegistrationForm: React.FC = () => {
 
             resetForm();
           } catch (err: any) {
-            console.log(err);
             toast({
               title: "Something went wrong.",
               description: err.message,
@@ -160,7 +161,12 @@ const RegistrationForm: React.FC = () => {
                 />
                 <FormErrorMessage>{errors.confirmPassword}</FormErrorMessage>
               </FormControl>
-              <FormControl display="flex" flexDir="column" alignItems="center">
+              <FormControl
+                display="flex"
+                flexDir="column"
+                alignItems="center"
+                pb={4}
+              >
                 <Button
                   bg="secondary"
                   color="header"
@@ -174,7 +180,18 @@ const RegistrationForm: React.FC = () => {
                   Sign Up
                 </Button>
                 <FormHelperText>
-                  Already have an account? Sign In
+                  Already have an account?{" "}
+                  <span
+                    style={{
+                      textDecoration: "underline",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => {
+                      dispatch(setToLoginPage());
+                    }}
+                  >
+                    Sign In
+                  </span>
                 </FormHelperText>
               </FormControl>
             </VStack>
