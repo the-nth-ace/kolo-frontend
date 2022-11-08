@@ -17,9 +17,6 @@ const NavItem: React.FC<Props> = ({ item, isActive }: Props) => {
         transition="ease-out"
         transitionProperty="backgroud"
         transitionDuration="normal"
-        _hover={{
-          background: "gray.dark",
-        }}
       >
         <Tooltip label={item.label} placement="right">
           <span>
@@ -27,6 +24,9 @@ const NavItem: React.FC<Props> = ({ item, isActive }: Props) => {
               w={5}
               h={5}
               color={isActive ? "header" : "body"}
+              _hover={{
+                color: "white",
+              }}
               as={item.icon}
             />
           </span>

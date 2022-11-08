@@ -22,6 +22,8 @@ const theme = extendTheme({
       secondary: "#EA624A",
       header: "#fff",
       body: "#A2ABA3",
+      dashBorder: "#3D3E62",
+      dashBg: "#1B1C31",
     },
   },
 });

@@ -1,5 +1,5 @@
 import { SidebarItem } from "../../types/nav-item";
-import { AiOutlineDashboard } from "react-icons/ai";
+import { AiOutlineDashboard, AiOutlinePoweroff } from "react-icons/ai";
 import { IoWalletOutline } from "react-icons/io5";
 import { SlBriefcase } from "react-icons/sl";
 

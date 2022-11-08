@@ -1,5 +1,14 @@
-import { HStack, Image, VStack, Text, List, ListItem } from "@chakra-ui/react";
+import {
+  HStack,
+  Image,
+  VStack,
+  Text,
+  List,
+  ListItem,
+  Spacer,
+} from "@chakra-ui/react";
 import React from "react";
+import { AiOutlinePoweroff } from "react-icons/ai";
 import { navData } from "./nav-data";
 import NavItem from "./nav-item";
 
@@ -8,7 +17,8 @@ const Sidebar: React.FC = () => {
     <VStack
       w="100px"
       h="100vh"
-      borderRight="1px solid #3D3E62"
+      borderRight="1px solid"
+      borderColor="dashBorder"
       py={8}
       px={6}
       spacing="100px"
@@ -20,6 +30,16 @@ const Sidebar: React.FC = () => {
           <NavItem item={el} isActive={false} key={el.label} />
         ))}
       </VStack>
+      <Spacer />
+      <NavItem
+        item={{
+          type: "Link",
+          href: "/",
+          icon: AiOutlinePoweroff,
+          label: "Logout",
+        }}
+        isActive={true}
+      />
     </VStack>
   );
 };

@@ -14,7 +14,7 @@ import { Field, Formik } from "formik";
 import { LoginRequest } from "../../types/LoginRequest";
 import { setToRegistrationPage, login } from "../../redux/slices/auth.slice";
 import axios from "axios";
-import { sleep } from "../../utils";
+import { sleep, brandRing } from "../../utils";
 
 const SignInForm: React.FC = () => {
   const dispatch = useDispatch();
@@ -77,6 +77,7 @@ const SignInForm: React.FC = () => {
                   name="email"
                   type="email"
                   placeholder="Email"
+                  {...brandRing}
                   required
                 />
                 <FormErrorMessage>{errors.email}</FormErrorMessage>
@@ -87,6 +88,7 @@ const SignInForm: React.FC = () => {
                   id="password"
                   name="password"
                   type="password"
+                  {...brandRing}
                   required
                   placeholder="Password"
                 />
@@ -101,6 +103,9 @@ const SignInForm: React.FC = () => {
                   height="40px"
                   borderRadius="md"
                   type="submit"
+                  _hover={{
+                    background: "#e74d31",
+                  }}
                   isLoading={isSubmitting}
                 >
                   Sign In
