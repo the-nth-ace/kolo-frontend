@@ -5,6 +5,7 @@ specifiers:
   '@chakra-ui/react': ^2.3.7
   '@emotion/react': ^11
   '@emotion/styled': ^11
+  '@fontsource/open-sans': ^4.5.13
   '@reduxjs/toolkit': ^1.9.0
   '@types/node': ^18.11.9
   '@types/react': ^18.0.22
@@ -34,6 +35,7 @@ dependencies:
   '@chakra-ui/react': 2.3.7_4hhzl37apollvxcsczsxiqg5ni
   '@emotion/react': 11.10.5_5ihuxrpe4zse4p4tf6ubxcyzuu
   '@emotion/styled': 11.10.5_z7x6wqqd37fzu777gq3gq2bxru
+  '@fontsource/open-sans': 4.5.13
   '@reduxjs/toolkit': 1.9.0_k4ae6lp43ej6mezo3ztvx6pykq
   '@types/node': 18.11.9
   '@types/react-redux': 7.1.24
@@ -1484,6 +1486,10 @@ packages:
     os: [linux]
     requiresBuild: true
     optional: true
+
+  /@fontsource/open-sans/4.5.13:
+    resolution: {integrity: sha512-/UzqP7ZFk145XAq8KG4pvFPP7UQhtreDGXgqXZjagCDreKxcrhwn/x7DYz9rPcycWkLUVApIybcoczGZiM0cRg==}
+    dev: false
 
   /@jridgewell/gen-mapping/0.1.1:
     resolution: {integrity: sha512-sQXCasFk+U8lWYEe66WxRDOE9PjVz4vSM51fTu3Hw+ClTpUSQb718772vH3pyS5pShp6lvQM7SxgIDXXXmOX7w==}

@@ -13,6 +13,7 @@
     "@chakra-ui/react": "^2.3.7",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@fontsource/open-sans": "^4.5.13",
     "@reduxjs/toolkit": "^1.9.0",
     "@types/node": "^18.11.9",
     "@types/react-redux": "^7.1.24",

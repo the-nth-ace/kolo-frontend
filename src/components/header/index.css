@@ -1,0 +1,5 @@
+select:invalid,
+select option[value=""] {
+  color: white !important;
+  background-color: #26273b !important;
+}

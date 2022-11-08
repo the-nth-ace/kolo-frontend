@@ -14,7 +14,7 @@ import axios from "axios";
 import { RootState } from "../../redux/store";
 import { useDispatch } from "react-redux";
 import { setToLoginPage } from "../../redux/slices/auth.slice";
-import { sleep } from "../../utils";
+import { brandRing, sleep } from "../../utils";
 
 const RegistrationForm: React.FC = () => {
   // Form registration logic
@@ -76,6 +76,7 @@ const RegistrationForm: React.FC = () => {
                   id="firstName"
                   name="firstName"
                   type="text"
+                  {...brandRing}
                   placeholder="First Name"
                   validate={(value: string) => {
                     if (value.length < 3) {
@@ -83,7 +84,9 @@ const RegistrationForm: React.FC = () => {
                     }
                   }}
                 />
-                <FormErrorMessage>{errors.firstName}</FormErrorMessage>
+                <FormErrorMessage fontSize="10">
+                  {errors.firstName}
+                </FormErrorMessage>
               </FormControl>
               <FormControl isInvalid={!!errors.lastName && touched.lastName}>
                 <Field
@@ -91,6 +94,7 @@ const RegistrationForm: React.FC = () => {
                   id="lastName"
                   name="lastName"
                   type="text"
+                  {...brandRing}
                   placeholder="Last Name"
                   validate={(value: string) => {
                     if (value.length < 3) {
@@ -98,13 +102,16 @@ const RegistrationForm: React.FC = () => {
                     }
                   }}
                 />
-                <FormErrorMessage>{errors.lastName}</FormErrorMessage>
+                <FormErrorMessage fontSize="10">
+                  {errors.lastName}
+                </FormErrorMessage>
               </FormControl>
               <FormControl isInvalid={!!errors.email && touched.email}>
                 <Field
                   as={Input}
                   id="email"
                   name="email"
+                  {...brandRing}
                   type="email"
                   placeholder="Email"
                   validate={async (value: string) => {
@@ -122,7 +129,9 @@ const RegistrationForm: React.FC = () => {
                     }
                   }}
                 />
-                <FormErrorMessage>{errors.email}</FormErrorMessage>
+                <FormErrorMessage fontSize="10">
+                  {errors.email}
+                </FormErrorMessage>
               </FormControl>
               <FormControl isInvalid={!!errors.password && touched.password}>
                 <Field
@@ -130,6 +139,7 @@ const RegistrationForm: React.FC = () => {
                   id="password"
                   name="password"
                   type="password"
+                  {...brandRing}
                   placeholder="Password"
                   validate={(value: string) => {
                     if (value.length < 8) {
@@ -137,7 +147,9 @@ const RegistrationForm: React.FC = () => {
                     }
                   }}
                 />
-                <FormErrorMessage>{errors.password}</FormErrorMessage>
+                <FormErrorMessage fontSize="10">
+                  {errors.password}
+                </FormErrorMessage>
               </FormControl>
               <FormControl
                 isInvalid={!!errors.confirmPassword && touched.confirmPassword}
@@ -147,6 +159,7 @@ const RegistrationForm: React.FC = () => {
                   id="confirmPassword"
                   name="confirmPassword"
                   type="password"
+                  {...brandRing}
                   placeholder="Confirm Password"
                   validate={(value: string) => {
                     if (value.length < 8) {
@@ -159,7 +172,9 @@ const RegistrationForm: React.FC = () => {
                     }
                   }}
                 />
-                <FormErrorMessage>{errors.confirmPassword}</FormErrorMessage>
+                <FormErrorMessage fontSize="10">
+                  {errors.confirmPassword}
+                </FormErrorMessage>
               </FormControl>
               <FormControl
                 display="flex"
@@ -176,6 +191,9 @@ const RegistrationForm: React.FC = () => {
                   borderRadius="md"
                   type="submit"
                   isLoading={isSubmitting}
+                  _hover={{
+                    background: "#e74d31",
+                  }}
                 >
                   Sign Up
                 </Button>
