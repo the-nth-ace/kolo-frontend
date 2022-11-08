@@ -11,6 +11,9 @@ import Dashboard from "./pages/Dashboard";
 import Auth from "./pages/Auth";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
+import "@fontsource/open-sans/500.css";
+import "@fontsource/open-sans/600.css";
+import "@fontsource/open-sans/700.css";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +35,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <Provider store={store}>
       <ChakraProvider theme={theme}>
         <RouterProvider router={router} />
-        <Fonts />
       </ChakraProvider>
     </Provider>
   </React.StrictMode>
