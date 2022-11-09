@@ -82,16 +82,14 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip,
 
 function createGradient(ctx: any, area: ChartArea) {
   const gradient = ctx.createLinearGradient(0, area.bottom, 0, area.top);
-  const pointerGradient = ctx.createLinearGradient(0, area.bottom, 0, area.top);
-  pointerGradient.addColorStop(0, 'white');
-  pointerGradient.addColorStop(1, '#F6F2FF');
+  
 
   gradient.addColorStop(0, '#4CDFE8');
   gradient.addColorStop(0.3, '#4CDFE8');
   gradient.addColorStop(0.9, '#7947F7');
   gradient.addColorStop(1, '#7947F7');
 
-  return { gradient, pointerGradient };
+  return gradient;
 }
 
 export default function MonthlyBalanceChart({ data, labels }: { data: number[]; labels: string[] }) {
@@ -112,7 +110,7 @@ export default function MonthlyBalanceChart({ data, labels }: { data: number[]; 
       datasets: [
         {
           data: data,
-          borderColor: createGradient(chart.ctx, chart.chartArea).gradient,
+          borderColor: createGradient(chart.ctx, chart.chartArea),
           tension: 0,
         },
       ],
