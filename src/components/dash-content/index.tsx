@@ -10,6 +10,7 @@ import {
 import React from "react";
 import DashboardHeader from "../header";
 import AccountSummary from "./account-summary";
+import MonthlyBalanceChart from './monthly-balance';
 import TransactionsSummary from "./transactions-summary";
 
 const DashContent: React.FC = () => {
@@ -80,7 +81,10 @@ const DashContent: React.FC = () => {
           <VStack flex="1" bg="#FDBC64" h="180px" borderRadius="lg"></VStack>
         </HStack>
         {/* Monthly Balance Chart */}
-        <VStack w="full" height="180px" bg="white"></VStack>
+        <VStack w="full" height="200px" px="20px" bg="#14152B">
+        <MonthlyBalanceChart labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', "June", "July", "August"]} data={[15, 18, 27, 27, 19, 21, 20, 24]} />
+
+        </VStack>
         {/* Account Summary */}
         <VStack w="full" height="220px" bg="white"></VStack>
       </VStack>
