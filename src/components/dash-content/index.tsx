@@ -20,7 +20,7 @@ const DashContent: React.FC = () => {
         w="730px"
         borderRight="px solid"
         borderColor="dashBorder"
-        pt={12}
+        pt={6}
         px={8}
         spacing={8}
         overflowY="scroll"
@@ -29,7 +29,7 @@ const DashContent: React.FC = () => {
       >
         {/* Account Summaries */}
         <HStack
-          bg="#26273B"
+          bg="rgba(255,255,255, 0.05)"
           borderRadius="md"
           w="full"
           flex="0 0 115px"
@@ -51,10 +51,10 @@ const DashContent: React.FC = () => {
 
         {/* Transactions Summary */}
         <HStack
-          bg="#26273B"
+          bg="rgba(255,255,255, 0.05)"
           borderRadius="md"
           flex="0 0 1050px"
-          pb={18}
+          pb={12}
           w="full"
         >
           <TransactionsSummary />

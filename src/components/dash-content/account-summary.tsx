@@ -1,5 +1,6 @@
 import { Box, Heading, HStack, VStack, Text } from "@chakra-ui/react";
 import React from "react";
+import AccountSummaryBarChart from "./account-summary-bar-chart";
 
 export type Props = {
   amount: number;
@@ -22,7 +23,13 @@ const AccountSummary: React.FC<Props> = ({
           {description}
         </Text>
       </VStack>
-      <Box bg="white" flex="1" h="full"></Box>
+      <Box bg="white" flex="1" h="full">
+        <AccountSummaryBarChart
+          label={description}
+          color="#6236FF"
+          data={graphData}
+        />
+      </Box>
     </HStack>
   );
 };
