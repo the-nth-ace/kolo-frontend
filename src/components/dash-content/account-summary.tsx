@@ -23,7 +23,7 @@ const AccountSummary: React.FC<Props> = ({
           {description}
         </Text>
       </VStack>
-      <Box bg="white" flex="1" h="full">
+      <Box bg="none" flex="1" h="full">
         <AccountSummaryBarChart
           label={description}
           color="#6236FF"

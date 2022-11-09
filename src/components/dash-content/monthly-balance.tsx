@@ -31,7 +31,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip,
     const { ctx } = chart;
     ctx.save();
     ctx.globalCompositeOperation = 'destination-over';
-    ctx.fillStyle = '#14152B';
+    ctx.fillStyle = 'transparent';
     ctx.fillRect(0, 0, chart.width, chart.height);
     ctx.restore();
   },
