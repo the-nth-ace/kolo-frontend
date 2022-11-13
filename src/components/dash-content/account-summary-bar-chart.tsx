@@ -32,40 +32,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, {
     ctx.fillRect(0, 0, chart.width, chart.height);
     ctx.restore();
   },
-  afterDraw: function (chart: any) {
-    if (chart.tooltip?._active && chart.tooltip?._active.length) {
-      const activePoint = chart.tooltip?._active[0];
-      const ctx = chart.ctx;
-      const verticalStrokeGradient = ctx.createLinearGradient(
-        0,
-        0,
-        0,
-        CHART_HEIGHT
-      );
-      verticalStrokeGradient.addColorStop(1, "#C87DEE00");
-      verticalStrokeGradient.addColorStop(0.5, "#B045E680");
-      verticalStrokeGradient.addColorStop(0, "#AA00FF");
-      const x = activePoint.element.x;
-      let offset;
-      if (chart.tooltip.dataPoints[0].element.y < 100) {
-        offset = 50;
-      } else {
-        offset = 90;
-      }
-      const topY = chart.scales.y.top + chart.tooltip.y - offset;
-      const bottomY = chart.scales.y.bottom;
-      ctx.save();
-      ctx.beginPath();
-      ctx.moveTo(x, topY);
-      ctx.lineTo(x, bottomY);
-      ctx.lineWidth = 1;
-      ctx.strokeStyle = verticalStrokeGradient;
-      ctx.stroke();
-      ctx.globalCompositeOperation = "destination-over";
 
-      ctx.restore();
-    }
-  },
 });
 
 export const options: ChartOptions<"bar"> = {
