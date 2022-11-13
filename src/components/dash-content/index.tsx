@@ -10,7 +10,7 @@ import {
 import React from "react";
 import DashboardHeader from "../header";
 import AccountSummary from "./account-summary";
-import MonthlyBalanceChart from './monthly-balance';
+import MonthlyBalanceChart from "./monthly-balance";
 import TransactionsSummary from "./transactions-summary";
 
 const DashContent: React.FC = () => {
@@ -40,13 +40,21 @@ const DashContent: React.FC = () => {
           <AccountSummary
             amount={1000}
             description="Credits"
-            graphData={[5, 4]}
+            color="#6236FF"
+            graphData={[
+              50, 100, 25, 60, 80, 100, 30, 49, 78, 50, 100, 25, 60, 80, 100,
+              30, 49, 78,
+            ]}
           />
           <Divider orientation="vertical" borderColor="dashBorder" />
           <AccountSummary
             amount={1000}
             description="Debits"
-            graphData={[5, 4]}
+            color="#FDBC64"
+            graphData={[
+              50, 100, 25, 60, 80, 100, 30, 49, 78, 50, 100, 25, 60, 80, 100,
+              30, 49, 78,
+            ]}
           />
         </HStack>
 
@@ -68,22 +76,33 @@ const DashContent: React.FC = () => {
         w="full"
         flex="1"
         bg="#14152A"
-        px="50px"
-        pt="63"
+        px="40px"
+        pt={8}
         pb={30}
         borderLeft="1px solid"
         borderColor="dashBorder"
-        spacing={8}
+        spacing={4}
       >
         {/* Master Card & Balance */}
         <HStack w="full" spacing={4}>
-          <Image src="/images/Master Card.png" height="180px" />
-          <VStack flex="1" bg="#FDBC64" h="180px" borderRadius="lg"></VStack>
+          <Image src="/images/Master Card.png" height="150px" />
+          <VStack flex="1" bg="#FDBC64" h="150px" borderRadius="md"></VStack>
         </HStack>
-        {/* Monthly Balance Chart */}
-        <VStack w="full" height="200px" px="20px" bg="#14152B">
-        <MonthlyBalanceChart labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', "June", "July", "August"]} data={[15, 18, 27, 27, 19, 21, 20, 24]} />
-
+        Monthly Balance Chart
+        <VStack w="full" height="150px" bg="#14152B">
+          <MonthlyBalanceChart
+            labels={[
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "June",
+              "July",
+              "August",
+            ]}
+            data={[15, 18, 27, 27, 19, 21, 20, 24]}
+          />
         </VStack>
         {/* Account Summary */}
         <VStack w="full" height="220px" bg="white"></VStack>
