@@ -15,6 +15,7 @@ import { RootState } from "../../redux/store";
 import { useDispatch } from "react-redux";
 import { setToLoginPage } from "../../redux/slices/auth.slice";
 import { brandRing, sleep } from "../../utils";
+import AuthService from "../../services/AuthService";
 
 const RegistrationForm: React.FC = () => {
   // Form registration logic
@@ -34,10 +35,7 @@ const RegistrationForm: React.FC = () => {
         onSubmit={async (values: any, { resetForm }: any) => {
           await sleep(3000);
           try {
-            const resp = await axios.post(
-              "http://localhost:5000/auth/signup",
-              values
-            );
+            await AuthService.signup(values);
 
             toast({
               title: "Account created.",
@@ -121,7 +119,9 @@ const RegistrationForm: React.FC = () => {
 
                     try {
                       await axios.get(
-                        `http://localhost:5000/auth/user/email/${value}`
+                        `${
+                          import.meta.env.VITE_BASE_API_URL
+                        }/auth/user/email/${value}`
                       );
                       return "User with this email already exists";
                     } catch (err) {

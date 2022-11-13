@@ -15,6 +15,7 @@ import { LoginRequest } from "../../types/LoginRequest";
 import { setToRegistrationPage, login } from "../../redux/slices/auth.slice";
 import axios from "axios";
 import { sleep, brandRing } from "../../utils";
+import AuthService from "../../services/AuthService";
 
 const SignInForm: React.FC = () => {
   const dispatch = useDispatch();
@@ -35,10 +36,8 @@ const SignInForm: React.FC = () => {
         onSubmit={async (values: LoginRequest, { resetForm }: any) => {
           await sleep(1000);
           try {
-            const resp = await axios.post(
-              "http://localhost:5000/auth/login",
-              values
-            );
+            const resp = await AuthService.signin(values);
+
             toast({
               title: "Log in Successful",
               description: "You have successfully logged in",

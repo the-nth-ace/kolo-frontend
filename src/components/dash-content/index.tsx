@@ -82,16 +82,19 @@ const DashContent: React.FC = () => {
         borderLeft="1px solid"
         borderColor="dashBorder"
         spacing={4}
+        style={{
+          marginTop: "20px",
+        }}
       >
         {/* Master Card & Balance */}
-        <HStack w="full" spacing={8}>
-          <Image src="/images/Master Card.png" height="170px" />
+        <HStack w="full" spacing={4}>
+          <Image src="/images/Master Card.png" width="300px" />
           <VStack
             // flex="1"
             bg="#FDBC64"
-            h="170px"
-            w="110px"
-            borderRadius="md"
+            h="full"
+            w="120px"
+            borderRadius="lg"
           ></VStack>
         </HStack>
         Monthly Balance Chart

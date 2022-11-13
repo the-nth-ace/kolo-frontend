@@ -1,42 +1,43 @@
-import {
-  HStack,
-  Image,
-  VStack,
-  Text,
-  List,
-  ListItem,
-  Spacer,
-  Icon, 
-  Tooltip
-} from "@chakra-ui/react";
+import { HStack, Image, VStack, Spacer, Icon, Tooltip } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlinePoweroff } from "react-icons/ai";
 import { navData } from "./nav-data";
 import { SidebarItem as Item } from "../../types/nav-item";
 import { Link } from "react-router-dom";
 
-
 type Props = {
   item: Item;
-  isActive: boolean;
+  color?: string;
+  isActive?: boolean;
 };
-const NavItem: React.FC<Props> = ({ item, isActive }: Props) => {
+
+const NavItem: React.FC<Props> = ({ item, isActive, color }: Props) => {
   return (
-    <Link to="">
+    <Link
+      to=""
+      style={{
+        width: "100%",
+      }}
+    >
       <HStack
         align="center"
-        justify="flex-start"
         height={{ base: 10, "2xl": 14 }}
         transition="ease-out"
         transitionProperty="backgroud"
         transitionDuration="normal"
+        w="full"
       >
+        {isActive && (
+          <Image src="./images/Union.png" position="relative" left="-6" />
+        )}
         <Tooltip label={item.label} placement="right">
           <span>
             <Icon
               w={5}
               h={5}
-              color={isActive ? "header" : "body"}
+              color={color ? color : isActive ? "header" : "body"}
+              left="-5"
+              position={isActive ? "relative" : "unset"}
               _hover={{
                 color: "white",
               }}
@@ -52,7 +53,7 @@ const NavItem: React.FC<Props> = ({ item, isActive }: Props) => {
 const Sidebar: React.FC = () => {
   return (
     <VStack
-      w="100px"
+      w="110px"
       h="100vh"
       borderRight="1px solid"
       borderColor="dashBorder"
@@ -61,10 +62,14 @@ const Sidebar: React.FC = () => {
       spacing="100px"
     >
       {/* Logo */}
-      <Image src="Bank.svg" alt="bank" />
-      <VStack spacing={8}>
-        {navData.map((el) => (
-          <NavItem item={el} isActive={false} key={el.label} />
+      <Image src="Bank.svg" alt="bank" w="160px" />
+      <VStack spacing={8} w="full">
+        {navData.map((el, index) => (
+          <NavItem
+            item={el}
+            isActive={index == 1 ? true : false}
+            key={el.label}
+          />
         ))}
       </VStack>
       <Spacer />
@@ -75,7 +80,7 @@ const Sidebar: React.FC = () => {
           icon: AiOutlinePoweroff,
           label: "Logout",
         }}
-        isActive={true}
+        color="header"
       />
     </VStack>
   );
