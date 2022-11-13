@@ -11,7 +11,7 @@ const TransactionsSummary: React.FC = () => {
         h="fit-content"
         px={8}
         pt="40px"
-        pb="80px"
+        pb="60px"
         spacing={8}
         borderBottom="1px solid"
         borderColor="dashBorder"
